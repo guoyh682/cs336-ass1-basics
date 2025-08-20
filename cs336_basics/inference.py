@@ -65,7 +65,6 @@ def decode(
             if end_tokens is not None and next_token.item() in end_tokens:
                 break
             input_ids = torch.cat([input_ids, next_token], dim=1)
-            # print("len(input_ids):", input_ids.shape)
 
     return input_ids
 
@@ -95,7 +94,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     device = args.device
 
-    # 加载 tokenizer （如果有的话，可以换成自己的）
+    # 加载 tokenizer 
     tokenizer = Tokenizer.from_files(
         vocab_filepath="/assignment1/myoutput/TinyStoriesVocab.json",
         merges_filepath="/assignment1/myoutput/TinyStoriesMerges.txt",
